@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Life Dashboard - To-Do List</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Theme Toggle & Settings -->
+        <div class="header-controls">
+            <button class="btn-settings" id="settingsBtn" aria-label="Settings">
+                <span>⚙️</span>
+            </button>
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                <span class="theme-icon">🌙</span>
+            </button>
+        </div>
+
+        <!-- Settings Modal -->
+        <div class="modal" id="settingsModal">
+            <div class="modal-overlay" id="modalOverlay"></div>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Settings</h2>
+                    <button class="modal-close" id="closeModal" aria-label="Close">×</button>
+                </div>
+                
+                <div class="modal-body">
+                    <div class="settings-section">
+                        <label for="nameInput" class="settings-label">Your Name</label>
+                        <p class="settings-description">Personalize your dashboard greeting</p>
+                        <div class="name-input-group">
+                            <input 
+                                type="text" 
+                                id="nameInput" 
+                                placeholder="Enter your name..." 
+                                maxlength="30"
+                                class="settings-input"
+                            />
+                            <button class="btn btn-primary" id="saveName">Save</button>
+                        </div>
+                        <p class="char-count"><span id="charCount">0</span>/30</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Greeting Section -->
+        <div class="greeting-section">
+            <div class="time" id="time">00:00:00</div>
+            <div class="date" id="date">Loading...</div>
+            <div class="greeting-container">
+                <div class="greeting" id="greeting">Good Day</div>
+                <div class="user-name" id="userName"></div>
+            </div>
+            <button class="btn-edit-name" id="editNameBtn" aria-label="Edit name">
+                <span>✏️</span>
+            </button>
+        </div>
+
+        <div class="dashboard-grid">
+            <!-- Focus Timer -->
+            <div class="card timer-card">
+                <h2>Focus Timer</h2>
+                <div class="timer-display" id="timerDisplay">25:00</div>
+                <div class="timer-controls">
+                    <button class="btn btn-primary" id="startBtn">Start</button>
+                    <button class="btn btn-secondary" id="stopBtn">Stop</button>
+                    <button class="btn btn-secondary" id="resetBtn">Reset</button>
+                </div>
+            </div>
+
+            <!-- To-Do List -->
+            <div class="card tasks-card">
+                <div class="tasks-header">
+                    <h2>Tasks</h2>
+                    <select class="sort-select" id="sortSelect">
+                        <option value="default">Sort by: Default</option>
+                        <option value="alphabetical">Sort by: A-Z</option>
+                        <option value="completed">Sort by: Completed</option>
+                    </select>
+                </div>
+                <div class="task-input-group">
+                    <input type="text" id="taskInput" placeholder="Add a new task..." />
+                    <button class="btn btn-add" id="addTaskBtn">Add</button>
+                </div>
+                <ul class="task-list" id="taskList"></ul>
+            </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="card links-card">
+            <h2>Quick Links</h2>
+            <div class="link-input-group">
+                <input type="text" id="linkName" placeholder="Link name" />
+                <input type="url" id="linkUrl" placeholder="URL" />
+                <button class="btn btn-add" id="addLinkBtn">Add Link</button>
+            </div>
+            <div class="links-container" id="linksContainer"></div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
